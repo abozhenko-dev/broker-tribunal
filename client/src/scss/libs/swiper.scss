@@ -1,0 +1,125 @@
+.swiper {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.swiper-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  transition-property: transform;
+}
+.swiper-android .swiper-slide,
+.swiper-wrapper {
+  transform: translate3d(0px, 0, 0);
+}
+.swiper-pointer-events {
+  touch-action: pan-y;
+}
+.swiper-slide {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  transition-property: transform;
+}
+.swiper-slide-invisible-blank {
+  visibility: hidden;
+}
+
+.swiper-backface-hidden .swiper-slide {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.swiper-centered {
+  > .swiper-wrapper::before {
+    content: "";
+    flex-shrink: 0;
+    order: 9999;
+  }
+
+  &.swiper-horizontal {
+    > .swiper-wrapper > .swiper-slide:first-child {
+      margin-inline-start: var(--swiper-centered-offset-before);
+    }
+    > .swiper-wrapper::before {
+      width: var(--swiper-centered-offset-after);
+      height: 100%;
+    }
+  }
+
+  > .swiper-wrapper > .swiper-slide {
+    scroll-snap-align: center center;
+  }
+}
+
+.swiper-pagination {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: translate3d(0, 0, 0);
+  transition: 300ms opacity;
+
+  &.swiper-pagination-hidden {
+    opacity: 0;
+  }
+
+  .swiper-pagination-disabled > &,
+  &.swiper-pagination-disabled {
+    display: none !important;
+  }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  display: inline-block;
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #d9d9d9;
+  transition: width var(--transition), height var(--transition),
+    background-color var(--transition);
+
+  .swiper-pagination-clickable & {
+    cursor: pointer;
+  }
+
+  &:only-child {
+    display: none !important;
+  }
+}
+.swiper-pagination-bullet-active {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #007aff;
+  transition: width var(--transition), height var(--transition),
+    background-color var(--transition);
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-horizontal.swiper-pagination-bullets {
+  .swiper-pagination-bullet {
+    margin-right: 0.4rem;
+    margin-left: 4px;
+  }
+}
+
+.swiper-pagination-lock {
+  display: none;
+}

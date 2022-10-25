@@ -1,0 +1,46 @@
+.layout {
+  &-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.4rem;
+    margin-top: 5.2rem;
+
+    @media (max-width: em(1200)) {
+      flex-direction: column;
+      gap: 4.8rem;
+    }
+
+    @media (max-width: em(992)) {
+      margin-top: 3.2rem;
+    }
+  }
+
+  &-content {
+    width: 100%;
+  }
+
+  &-sidebar {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: 3.2rem;
+    width: 100%;
+    max-width: 29.4rem;
+
+    @media (max-width: em(1200)) {
+      display: grid;
+      grid-gap: 1.6rem;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: initial;
+    }
+
+    @media (max-width: em(992)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: em(576)) {
+      display: flex;
+      gap: 1.6rem;
+    }
+  }
+}

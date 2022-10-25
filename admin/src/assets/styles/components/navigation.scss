@@ -1,0 +1,39 @@
+.navigation {
+  border-right: none;
+  padding-top: 14px;
+  padding-bottom: 40px;
+
+  .ant-menu-item-group-title {
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: opacity 0.3s, visibility 0.3s, height 0.3s, padding-bottom 0.3s, padding-top 0.3s,
+      font-size 0.3s, padding-left 0.3s;
+  }
+
+  .ant-menu-sub {
+    padding-left: 4px;
+  }
+
+  .ant-menu-item-icon {
+    font-size: 18px;
+  }
+
+  .ant-menu-title-content {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  &.ant-menu.ant-menu-inline-collapsed {
+    .ant-menu-item-group-title {
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 32px;
+      height: 0;
+      font-size: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

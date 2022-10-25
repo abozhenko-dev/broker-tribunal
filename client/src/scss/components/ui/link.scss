@@ -1,0 +1,118 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition: color var(--transition);
+
+  .icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem solid var(--clr-default-400);
+    border-radius: 50%;
+    width: 3.2rem;
+    height: 3.2rem;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      transition: fill var(--transition);
+      pointer-events: none;
+    }
+  }
+
+  &.icon-ghost {
+    .icon {
+      background-color: var(--clr-default-100);
+
+      svg {
+        fill: var(--clr-default-900);
+      }
+    }
+
+    &.focus-visible {
+      .icon {
+        svg {
+          fill: var(--clr-primary-300);
+          transition: fill var(--transition);
+        }
+      }
+    }
+
+    @media (hover) {
+      &:hover {
+        .icon {
+          svg {
+            fill: var(--clr-primary-300);
+            transition: fill var(--transition);
+          }
+        }
+      }
+    }
+  }
+
+  &.icon-primary {
+    .icon {
+      background-color: var(--clr-primary-400);
+      transition: background-color var(--transition);
+
+      svg {
+        fill: var(--clr-default-100);
+      }
+    }
+
+    &.focus-visible {
+      .icon {
+        background-color: transparent;
+        transition: background-color var(--transition);
+
+        svg {
+          fill: var(--clr-primary-300);
+          transition: fill var(--transition);
+        }
+      }
+    }
+
+    @media (hover) {
+      &:hover {
+        .icon {
+          background-color: transparent;
+          transition: background-color var(--transition);
+
+          svg {
+            fill: var(--clr-primary-300);
+            transition: fill var(--transition);
+          }
+        }
+      }
+    }
+  }
+
+  &.border {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem solid var(--clr-default-400);
+    border-radius: var(--radius);
+    padding: 0.8rem 1.6rem;
+    width: 100%;
+    min-height: 7.2rem;
+    background-color: var(--clr-default-100);
+  }
+
+  &.focus-visible {
+    outline: none;
+    color: var(--clr-primary-300);
+    transition: color var(--transition);
+  }
+
+  @media (hover) {
+    &:hover {
+      color: var(--clr-primary-300);
+      transition: color var(--transition);
+    }
+  }
+}

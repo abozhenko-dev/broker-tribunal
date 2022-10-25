@@ -1,0 +1,11 @@
+.blog {
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    .news-list {
+      margin-top: 0;
+    }
+  }
+}

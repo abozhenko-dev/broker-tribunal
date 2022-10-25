@@ -1,0 +1,115 @@
+.filter {
+  position: relative;
+  font-size: 1.4rem;
+
+  &.open {
+    .icon {
+      transform: rotate(180deg);
+      transition: transform var(--transition);
+    }
+
+    .filter-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity var(--transition), transform var(--transition),
+        visibility var(--transition);
+      pointer-events: initial;
+    }
+  }
+
+  &-current {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    border: 0.1rem solid var(--clr-default-400);
+    border-radius: calc(var(--radius) / 2);
+    padding: 1.6rem 2.4rem;
+    width: 100%;
+    min-height: 6rem;
+    background-color: var(--clr-default-100);
+
+    &.focus-visible {
+      outline: none;
+      border-color: var(--clr-primary-300);
+      transition: border-color var(--transition);
+    }
+
+    .text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .icon {
+      display: flex;
+      flex-shrink: 0;
+      transition: transform var(--transition);
+
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+
+    @media (hover) {
+      &:hover {
+        border-color: var(--clr-primary-300);
+        transition: border-color var(--transition);
+      }
+    }
+  }
+
+  &-dropdown {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.8rem);
+    overflow: hidden;
+    border: 0.1rem solid var(--clr-default-400);
+    border-radius: calc(var(--radius) / 2);
+    width: 100%;
+    background-color: var(--clr-default-100);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+    transition: opacity var(--transition), transform var(--transition),
+      visibility var(--transition);
+    pointer-events: none;
+
+    &__list {
+      li {
+        &:not(:last-child) {
+          border-bottom: 0.1rem solid var(--clr-default-400);
+        }
+      }
+
+      button {
+        overflow: hidden;
+        padding: 1.6rem;
+        width: 100%;
+        min-height: 5.2rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        transition: color var(--transition), background-color var(--transition);
+
+        &.focus-visible {
+          outline: none;
+          color: var(--clr-default-100);
+          background-color: var(--clr-primary-300);
+          transition: color var(--transition),
+            background-color var(--transition);
+        }
+
+        @media (hover) {
+          &:hover {
+            color: var(--clr-default-100);
+            background-color: var(--clr-primary-300);
+            transition: color var(--transition),
+              background-color var(--transition);
+          }
+        }
+      }
+    }
+  }
+}

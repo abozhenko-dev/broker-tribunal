@@ -1,0 +1,35 @@
+name: Continuous Deployment for production environment
+
+on:
+  push:
+    branches: [main]
+
+env:
+  PROJECT_DIR: apps/broker-tribunal
+  PROJECT_NAME: broker
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: "Deploy to VPS: Rebuild project"
+        uses: appleboy/ssh-action@v0.1.3
+        with:
+          host: ${{ secrets.HOSTNAME }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          command_timeout: 30m
+          script: |
+            cd ${{ env.PROJECT_DIR }}
+            git pull origin main
+            docker-compose -p ${{ env.PROJECT_NAME }} up -d --build
+          # script: |
+          #   cd ${{ env.PROJECT_DIR }}
+          #   git pull origin main
+          #   docker-compose -p ${{ env.PROJECT_NAME }} down
+          #   docker-compose -p ${{ env.PROJECT_NAME }} up -d --build

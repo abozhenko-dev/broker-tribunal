@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@assets/*": ["assets/*", "assets/*/index"],
+
+      "@routes": ["routes/index"],
+      "@routes/*": ["routes/*"],
+
+      "@layouts": ["layouts/index"],
+      "@layouts/*": ["layouts/*"],
+
+      "@components": ["components/index"],
+      "@components/*": ["components/*"],
+
+      "@configs": ["configs/index"],
+      "@configs/*": ["configs/*"],
+
+      "@hooks": ["hooks/index"],
+      "@hooks/*": ["hooks/*"],
+
+      "@pages": ["pages/index"],
+      "@pages/*": ["pages/*"],
+
+      "@services": ["services/index"],
+      "@services/*": ["services/*"],
+
+      "@store": ["store/index"],
+      "@store/*": ["store/*"],
+
+      "@types": ["types/index"],
+      "@types/*": ["types/*"],
+
+      "@utils": ["utils/index"],
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}

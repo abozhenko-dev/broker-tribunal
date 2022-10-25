@@ -1,0 +1,86 @@
+.promo {
+  &__wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    border: 0.1rem solid var(--clr-default-400);
+    border-radius: 2.5rem;
+    padding: 5rem 3rem;
+    max-width: 83rem;
+    background-color: var(--clr-default-100);
+
+    &-top {
+      display: flex;
+      margin-bottom: 3rem;
+    }
+
+    &-img {
+      flex-shrink: 0;
+      margin-right: 2.5rem;
+      width: 100%;
+      max-width: 24.2rem;
+
+      @media (max-width: em(767)) {
+        display: none;
+      }
+    }
+
+    &-info {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 2.4rem;
+        font-weight: 500;
+        font-size: fluid(3.2rem, 2.7rem);
+        line-height: 120%;
+      }
+
+      p,
+      div {
+        margin-top: 1.2rem;
+        font-size: 1.4rem;
+        line-height: 140%;
+        color: var(--clr-default-800);
+      }
+    }
+
+    @media (max-width: em(992)) {
+      padding: 2.5rem;
+    }
+
+    @media (max-width: em(767)) {
+      margin: initial;
+      border: initial;
+      border-radius: initial;
+      padding: initial;
+      background-color: initial;
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-gap: 2.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 2.5rem;
+
+    @media (max-width: em(992)) {
+      grid-gap: 1.5rem;
+    }
+
+    @media (max-width: em(576)) {
+      display: block;
+    }
+
+    .form-input + .form-input {
+      @media (max-width: em(576)) {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+
+  .button {
+    margin-top: 2.5rem;
+  }
+}

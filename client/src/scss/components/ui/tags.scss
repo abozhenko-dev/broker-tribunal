@@ -1,0 +1,43 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+
+  &-item {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 0.1rem solid var(--clr-default-400);
+      border-radius: calc(var(--radius) / 2);
+      padding: 0.5rem 1rem;
+      min-height: 3.6rem;
+      font-size: 1.3rem;
+      white-space: nowrap;
+      transition: background-color var(--transition), color var(--transition);
+
+      &.focus-visible {
+        outline: none;
+        color: var(--clr-default-100);
+        background-color: var(--clr-primary-300);
+        transition: background-color var(--transition), color var(--transition);
+      }
+
+      &.active {
+        color: var(--clr-default-100);
+        background-color: var(--clr-primary-300);
+      }
+
+      @media (hover) {
+        &:hover {
+          color: var(--clr-default-100);
+          background-color: var(--clr-primary-300);
+          transition: background-color var(--transition),
+            color var(--transition);
+        }
+      }
+    }
+  }
+}

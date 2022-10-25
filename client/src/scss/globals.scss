@@ -1,0 +1,210 @@
+// ФУНКЦИИ====================================================================
+@import "./settings/functions";
+
+// </ФУНКЦИИ>=================================================================
+
+// <Подключаем шрифты>========================================================
+@import "./settings/fonts";
+
+// </Подключаем шрифты>=======================================================
+
+// <ОБНУЛЕНИЕ>================================================================
+@import "./settings/normalize";
+
+// </ОБНУЛЕНИЕ>===============================================================
+
+// <ПЕРЕМЕННЫЕ>===============================================================
+$containerWidth: 128rem;
+
+:root {
+  // base
+  --font-family: "Ubuntu", sans-serif;
+  --font-weight: 400;
+  --content-width: 125rem;
+  --container-offset: 1.5rem;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --transition: 0.3s;
+  --radius: 1rem;
+
+  --clr-primary-100: #f0f4ff;
+  --clr-primary-200: #e9f1fe;
+  --clr-primary-300: #208bff;
+  --clr-primary-400: #007aff;
+
+  --clr-default-100: #fff;
+  --clr-default-200: #fafafa;
+  --clr-default-300: #f1f1f1;
+  --clr-default-400: #e9e9f0;
+  --clr-default-600: #929292;
+  --clr-default-800: #3c3b41;
+  --clr-default-900: #090810;
+
+  --clr-ui-error: #ff3549;
+}
+
+// </ПЕРЕМЕННЫЕ>==============================================================
+
+// <ОБОЛОЧКИ>================================================================
+body {
+  font-size: 1.7rem;
+  color: var(--clr-default-900);
+  background-color: var(--clr-default-200);
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  min-width: 32rem;
+  min-height: 100%;
+}
+
+// </ОБОЛОЧКИ>===============================================================
+
+// <СТИЛИ>===================================================================
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--container-offset);
+  padding-left: var(--container-offset);
+  width: 100%;
+  max-width: var(--container-width);
+}
+
+.gutter {
+  &-head {
+    margin-bottom: 8rem;
+
+    @media (max-width: em(992)) {
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  &-section-top {
+    padding-top: 16rem;
+
+    @media (max-width: em(992)) {
+      padding-top: 6.2rem;
+    }
+  }
+
+  &-section-bottom {
+    padding-bottom: 16rem;
+
+    @media (max-width: em(992)) {
+      padding-bottom: 6.2rem;
+    }
+  }
+
+  &-subsection-top {
+    padding-top: 8rem;
+
+    @media (max-width: em(992)) {
+      padding-top: 5.2rem;
+    }
+  }
+}
+
+// Components - UI
+@import "./components/ui/typography.scss";
+@import "./components/ui/button.scss";
+@import "./components/ui/link.scss";
+@import "./components/ui/logo.scss";
+@import "./components/ui/breadcrumbs.scss";
+@import "./components/ui/tags.scss";
+@import "./components/ui/languages.scss";
+
+// Components - UI
+
+// Components - Form
+@import "./components/form/input.scss";
+@import "./components/form/textarea.scss";
+@import "./components/form/phone.scss";
+@import "./components/form/rating.scss";
+@import "./components/form/selector.scss";
+@import "./components/form/error.scss";
+// Components - Form
+
+// Components - Cards
+@import "./components/cards/article.scss";
+@import "./components/cards/banner.scss";
+@import "./components/cards/review.scss";
+@import "./components/cards/benefit.scss";
+// Components - Cards
+
+// Components - Modals
+@import "./components/modals/review.scss";
+@import "./components/modals/consultation.scss";
+@import "./components/modals/thanks.scss";
+// Components - Modals
+
+// Components - Layout
+@import "./components/layouts/banner.scss";
+// Components - Layout
+
+// Components - Common
+@import "./components/common/header.scss";
+@import "./components/common/socials.scss";
+@import "./components/common/contacts.scss";
+@import "./components/common/footer.scss";
+@import "./components/common/accordion.scss";
+@import "./components/common/last-news.scss";
+@import "./components/common/similar-news.scss";
+@import "./components/common/pagination.scss";
+@import "./components/common/drawer.scss";
+@import "./components/common/search.scss";
+@import "./components/common/filter.scss";
+@import "./components/common/rating.scss";
+@import "./components/common/complaint.scss";
+@import "./components/common/modal.scss";
+// Components - Common
+
+// Components - Pages
+@import "./components/pages/home/home.scss";
+@import "./components/pages/home/faq.scss";
+@import "./components/pages/home/illustrations.scss";
+@import "./components/pages/home/recommendations.scss";
+@import "./components/pages/home/reviews.scss";
+@import "./components/pages/home/last-added.scss";
+@import "./components/pages/home/feedback.scss";
+
+@import "./components/pages/news/news.scss";
+
+@import "./components/pages/article/article.scss";
+
+@import "./components/pages/companies/companies.scss";
+
+@import "./components/pages/company/company.scss";
+
+@import "./components/pages/blog/blog.scss";
+
+@import "./components/pages/overview/overview.scss";
+
+@import "./components/pages/overview-article/overview-article.scss";
+
+@import "./components/pages/partners/partners.scss";
+
+@import "./components/pages/policy/policy.scss";
+
+@import "./components/pages/promo/promo.scss";
+
+@import "./components/pages/consultation/hero.scss";
+@import "./components/pages/consultation/benefits.scss";
+@import "./components/pages/consultation/broker.scss";
+@import "./components/pages/consultation/attention.scss";
+
+@import "./components/pages/not-found/not-found.scss";
+
+// Components - Pages
+
+@import "./libs/swiper.scss";
+@import "./libs/react-phone-input.scss";
+
+// </СТИЛИ>==================================================================

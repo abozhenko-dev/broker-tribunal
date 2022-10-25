@@ -1,0 +1,46 @@
+.home-illustrations {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 72.4rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+
+    @media (max-width: em(1200)) {
+      display: none;
+    }
+  }
+
+  &::before {
+    right: 0;
+    top: -5rem;
+    width: 33.6rem;
+    background-image: url("/media/illustrations/earth-2.svg");
+  }
+
+  &::after {
+    left: 0;
+    bottom: 2rem;
+    width: 46.3rem;
+    background-image: url("/media/illustrations/earth-3.svg");
+  }
+
+  .last-news {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: em(1200)) {
+    &.gutter-section-bottom {
+      padding-bottom: 0;
+    }
+  }
+}

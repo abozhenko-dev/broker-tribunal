@@ -1,0 +1,48 @@
+.form-textarea {
+  textarea {
+    display: flex;
+    align-items: center;
+    border: 0.1rem solid var(--clr-default-400);
+    border-radius: calc(var(--radius) / 2);
+    padding: 1rem;
+    width: 100%;
+    min-height: 12rem;
+    font-size: 1.4rem;
+    background-color: var(--clr-default-300);
+    transition: border-color var(--transition);
+    resize: none;
+
+    &::placeholder {
+      color: var(--clr-default-600);
+    }
+
+    &.focus-visible {
+      outline: none;
+      border-color: var(--clr-primary-400);
+      transition: border-color var(--transition);
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+  }
+
+  &.error {
+    textarea {
+      border-color: var(--clr-ui-error);
+      transition: border-color var(--transition);
+
+      &.focus-visible {
+        border-color: var(--clr-primary-400);
+        transition: border-color var(--transition);
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+}

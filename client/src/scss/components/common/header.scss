@@ -1,0 +1,243 @@
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.1rem solid var(--clr-default-400);
+  height: 9.2rem;
+  background-color: var(--clr-default-100);
+
+  .socials {
+    position: relative;
+    padding-right: 4.8rem;
+    padding-left: 4.8rem;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 0.1rem;
+      height: 9.2rem;
+      background-color: var(--clr-default-400);
+      transform: translateY(-50%);
+
+      @media (max-width: em(767)) {
+        display: none;
+      }
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+
+    @media (max-width: em(1200)) {
+      padding-right: 2.4rem;
+      padding-left: 2.4rem;
+    }
+
+    @media (max-width: em(992)) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @media (max-width: em(767)) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    @media (max-width: em(576)) {
+      display: none;
+    }
+  }
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+
+    @media (max-width: em(992)) {
+      justify-content: initial;
+    }
+  }
+
+  &-contacts {
+    display: flex;
+    align-items: center;
+    gap: 4.8rem;
+    font-weight: 500;
+
+    @media (max-width: em(1200)) {
+      gap: 1.6rem;
+    }
+
+    @media (max-width: em(992)) {
+      display: none;
+    }
+  }
+
+  &-burger {
+    position: relative;
+    display: block;
+    width: 2.6rem;
+    height: 2.6rem;
+    background-color: transparent;
+
+    &::after,
+    &::before,
+    span {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 1.8rem;
+      height: 0.2rem;
+      background-color: var(--clr-default-900);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    &::before {
+      transform: translate(-50%, calc(-50% - 0.5rem));
+      transition: transform var(--transition);
+    }
+
+    &::after {
+      transform: translate(-50%, calc(-50% + 0.5rem));
+      transition: transform var(--transition);
+    }
+
+    span {
+      transition: transform var(--transition);
+    }
+
+    &.open {
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+        transition: transform var(--transition);
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        transition: transform var(--transition);
+      }
+
+      span {
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform var(--transition);
+      }
+    }
+  }
+
+  &-menu {
+    gap: 4.8rem;
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      margin-top: auto;
+    }
+
+    &__contacts {
+      .email {
+        font-weight: 500;
+        font-size: fluid(3.2rem, 2.4rem);
+      }
+
+      .phone {
+        font-weight: 500;
+        font-size: fluid(4.6rem, 2.7rem);
+      }
+    }
+  }
+
+  &-nav {
+    &__item {
+      font-weight: 500;
+      font-size: fluid(2rem, 1.7rem);
+
+      &.open {
+        .icon {
+          border-color: var(--clr-primary-300);
+          transform: rotate(180deg);
+          transition: border-color var(--transition),
+            transform var(--transition);
+
+          svg {
+            fill: var(--clr-primary-300);
+            transition: fill var(--transition);
+          }
+        }
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2.4rem;
+        width: 100%;
+        font-weight: inherit;
+
+        .icon {
+          display: flex;
+          flex-shrink: 0;
+          align-items: center;
+          justify-content: center;
+          border: 0.1rem solid var(--clr-default-400);
+          border-radius: 50%;
+          width: 2.4rem;
+          height: 2.4rem;
+          transition: border-color var(--transition),
+            transform var(--transition);
+
+          svg {
+            width: 1.8rem;
+            height: 1.8rem;
+            transition: fill var(--transition);
+            pointer-events: none;
+          }
+        }
+      }
+
+      div {
+        overflow: hidden;
+        transition: height var(--transition);
+      }
+
+      ul {
+        padding-top: 2rem;
+        font-size: 1.4rem;
+
+        li {
+          a {
+            display: block;
+            color: var(--clr-default-800);
+
+            &.focus-visible {
+              color: var(--clr-default-900);
+              transition: color var(--transition);
+            }
+
+            @media (hover) {
+              &:hover {
+                color: var(--clr-default-900);
+                transition: color var(--transition);
+              }
+            }
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 1.6rem;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

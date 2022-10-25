@@ -1,0 +1,12 @@
+.form-rating {
+  &__label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+  }
+
+  &.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,25 @@
+.contacts {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  gap: 5rem;
+
+  @media (max-width: em(1200)) {
+    gap: 1.5rem;
+  }
+
+  a {
+    font-weight: 500;
+    font-size: 1.7rem;
+    line-height: 140%;
+    transition: color var(--transition);
+
+    @media (hover) {
+      &:hover {
+        color: var(--clr-primary-300);
+        transition: color var(--transition);
+      }
+    }
+  }
+}

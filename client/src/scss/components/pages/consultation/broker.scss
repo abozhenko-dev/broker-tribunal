@@ -1,0 +1,53 @@
+.broker {
+  overflow: hidden;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  background-color: var(--clr-primary-100);
+
+  @media (max-width: em(992)) {
+    padding-bottom: initial;
+    background-color: initial;
+  }
+
+  @media (max-width: em(767)) {
+    padding-top: 6rem;
+  }
+
+  .complaint-wrapper {
+    margin-left: initial;
+
+    @media (max-width: em(1200)) {
+      border-radius: calc(var(--radius) * 2.5);
+      padding: 3rem;
+      max-width: 84rem;
+    }
+
+    @media (max-width: em(992)) {
+      border-radius: initial;
+      padding: initial;
+      max-width: initial;
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+
+  p.typography {
+    max-width: 62rem;
+  }
+
+  &-background {
+    position: absolute;
+    right: -6%;
+    bottom: -12.4rem;
+    width: 100%;
+    max-width: 51.1rem;
+    pointer-events: none;
+
+    @media (max-width: em(992)) {
+      position: initial;
+      margin: 0.5rem auto 0;
+    }
+  }
+}

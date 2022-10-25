@@ -1,0 +1,23 @@
+.banner-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow: hidden;
+  border: 0.1rem solid var(--clr-default-400);
+  border-radius: var(--radius);
+  padding: 3.2rem 2rem;
+  min-height: 22.3rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--clr-default-100);
+
+  .action {
+    margin-top: auto;
+  }
+
+  @media (max-width: em(576)) {
+    padding: 2.4rem 1.6rem;
+    min-height: initial !important;
+  }
+}

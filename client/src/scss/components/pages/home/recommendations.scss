@@ -1,0 +1,68 @@
+.recommendations {
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 72.4rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+
+    @media (max-width: em(1200)) {
+      display: none;
+    }
+  }
+
+  &::before {
+    left: 0;
+    top: 16rem;
+    width: 53.3rem;
+    background-image: url("/media/illustrations/earth-1.svg");
+  }
+
+  .container {
+    > .link {
+      margin-top: 3.2rem;
+
+      @media (min-width: em(993)) {
+        display: none;
+      }
+    }
+  }
+
+  &-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+
+    .link {
+      @media (max-width: em(992)) {
+        display: none;
+      }
+    }
+  }
+
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--clr-default-100);
+
+    .article-card {
+      border: 0.1rem solid var(--clr-default-400);
+      padding: 1.6rem;
+    }
+
+    @media (max-width: em(992)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: em(767)) {
+      display: block;
+    }
+  }
+}

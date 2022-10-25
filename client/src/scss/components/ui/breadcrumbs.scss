@@ -1,0 +1,43 @@
+.breadcrumbs {
+  margin-top: 3.2rem;
+  margin-bottom: 3.2rem;
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &-item {
+    font-size: 1.4rem;
+
+    a {
+      position: relative;
+      padding-right: 1.7rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 0.6rem;
+        height: 1rem;
+        background-image: url("/media/icons/shevron.svg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transform: translateY(-50%);
+      }
+    }
+
+    &.last {
+      color: var(--clr-default-600);
+    }
+  }
+
+  @media (max-width: em(992)) {
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+  }
+}

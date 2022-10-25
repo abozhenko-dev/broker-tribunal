@@ -1,0 +1,24 @@
+.form-phone {
+  &__label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+  }
+
+  &.error {
+    .react-tel-input .form-control {
+      border-color: var(--clr-ui-error);
+      transition: border-color var(--transition);
+    }
+
+    .react-tel-input .flag-dropdown {
+      border-color: var(--clr-ui-error);
+      transition: border-color var(--transition);
+    }
+  }
+
+  &.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+}

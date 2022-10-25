@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  client:
+    build: ./client
+    container_name: broker-client
+    command: yarn start
+    restart: unless-stopped
+    expose:
+      - 3000
+    environment:
+      - VIRTUAL_HOST=broker.abozhenko.com
+      - LETSENCRYPT_HOST=broker.abozhenko.com
+      - VIRTUAL_PORT=3000
+    depends_on:
+      - server
+
+  admin:
+    build:
+      context: ./admin
+      target: production
+    container_name: broker-admin
+    restart: unless-stopped
+    expose:
+      - 7000
+    environment:
+      - VIRTUAL_HOST=admin-broker.abozhenko.com
+      - LETSENCRYPT_HOST=admin-broker.abozhenko.com
+      - VIRTUAL_PORT=7000
+    depends_on:
+      - server
+
+  server:
+    build: ./server
+    container_name: broker-server
+    command: yarn start:prod
+    restart: unless-stopped
+    expose:
+      - 4000
+    environment:
+      - VIRTUAL_HOST=api-broker.abozhenko.com
+      - LETSENCRYPT_HOST=api-broker.abozhenko.com
+      - VIRTUAL_PORT=4000
+    volumes:
+      - /pipes/pipe:/pipes/pipe
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

@@ -1,0 +1,68 @@
+.hero {
+  overflow: hidden;
+  padding-top: 12rem;
+  padding-bottom: 13.5rem;
+  background-color: var(--clr-primary-100);
+
+  @media (max-width: em(1100)) {
+    padding-bottom: initial;
+  }
+
+  @media (max-width: em(767)) {
+    padding-top: 5rem;
+  }
+
+  &__info {
+    max-width: 72rem;
+
+    @media (max-width: em(1100)) {
+      margin: 0 auto;
+    }
+  }
+
+  .h1 {
+    line-height: 90%;
+    letter-spacing: -0.03em;
+  }
+
+  .button {
+    min-width: 32rem;
+
+    @media (max-width: em(576)) {
+      width: 100%;
+      min-width: initial;
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+
+  &-background {
+    position: absolute;
+    right: -4%;
+    bottom: -14rem;
+    width: 100%;
+    max-width: 69.8rem;
+    pointer-events: none;
+
+    @media (max-width: em(1200)) {
+      max-width: 62rem;
+    }
+
+    @media (max-width: em(1100)) {
+      position: initial;
+      margin: 2.5rem auto 0;
+    }
+  }
+
+  &__text {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    max-width: 54rem;
+
+    @media (max-width: em(1100)) {
+      max-width: initial;
+    }
+  }
+}

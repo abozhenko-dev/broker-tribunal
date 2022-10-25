@@ -1,0 +1,24 @@
+.error-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 10px;
+  background-color: rgba(252, 152, 152, 0.1);
+  box-shadow: 0 0 3px 1px rgb(255, 118, 118);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__text {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__message {
+    letter-spacing: 0.5px;
+  }
+}

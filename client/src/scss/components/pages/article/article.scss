@@ -1,0 +1,109 @@
+.article {
+  &-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 93rem;
+  }
+
+  &-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.1rem solid var(--clr-default-400);
+      border-radius: calc(var(--radius) / 2);
+      padding: 1rem;
+      min-height: 3.6rem;
+      white-space: nowrap;
+    }
+  }
+
+  &-content {
+    div {
+      line-height: 140%;
+
+      h2:first-child,
+      h3:first-child,
+      h4:first-child,
+      h5:first-child,
+      h6:first-child,
+      p:first-child {
+        margin-top: 0;
+      }
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 5.2rem;
+        margin-bottom: 1.6rem;
+        font-weight: 500;
+        font-size: 2rem;
+      }
+
+      p {
+        margin-top: 1.6rem;
+        color: var(--clr-default-800);
+
+        > a {
+          display: block;
+          color: var(--clr-primary-400);
+          transition: color var(--transition);
+
+          &.focus-visible {
+            outline: none;
+            color: var(--clr-primary-300);
+            transition: color var(--transition);
+          }
+
+          @media (hover) {
+            &:hover {
+              color: var(--clr-primary-300);
+              transition: color var(--transition);
+            }
+          }
+        }
+
+        > img {
+          width: 100%;
+        }
+      }
+
+      ol,
+      ul {
+        margin-top: 1.6rem;
+
+        li {
+          &:not(:last-child) {
+            margin-bottom: 1.6rem;
+          }
+        }
+      }
+
+      ul {
+        li {
+          position: relative;
+          padding-left: 1.2rem;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 1.1rem;
+            border-radius: 50%;
+            width: 0.4rem;
+            height: 0.4rem;
+            background-color: currentColor;
+          }
+        }
+      }
+    }
+  }
+}

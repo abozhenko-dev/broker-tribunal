@@ -1,0 +1,49 @@
+.partners {
+  padding-top: 5.2rem;
+  background-color: var(--clr-default-100);
+
+  &-wrapper {
+    h1 {
+      margin-bottom: 4rem;
+      font-weight: 500;
+      font-size: fluid(3.2rem, 2.7rem);
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 4.8rem;
+      margin-bottom: 1.6rem;
+      font-weight: 500;
+      font-size: 2rem;
+    }
+
+    p,
+    div,
+    ul,
+    ol {
+      line-height: 140%;
+      color: var(--clr-default-800);
+    }
+
+    ul,
+    ol {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 1.2rem;
+        }
+      }
+    }
+
+    a {
+      font-weight: 500;
+      color: var(--clr-default-900);
+    }
+  }
+
+  @media (max-width: em(992)) {
+    padding-top: 3.2rem;
+  }
+}

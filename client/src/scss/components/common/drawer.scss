@@ -1,0 +1,100 @@
+$anim: var(--transition);
+
+.drawer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  &.open {
+    pointer-events: initial;
+
+    .drawer-backdrop {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity $anim, visibility $anim;
+    }
+
+    .drawer-modal {
+      transform: translateX(0);
+      transition: transform $anim $anim;
+    }
+  }
+
+  &-backdrop {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $anim $anim, visibility $anim $anim;
+  }
+
+  &-modal {
+    position: relative;
+    border-right: 0.1rem solid var(--clr-default-400);
+    border-top-right-radius: 3.2rem;
+    border-bottom-right-radius: 3.2rem;
+    padding: 5rem 8rem;
+    width: 100%;
+    height: 100%;
+    max-width: 54.8rem;
+    box-shadow: 9rem 0.1rem 3.5rem rgba(148, 148, 148, 0.25);
+    background-color: var(--clr-default-100);
+    transform: translateX(-100%);
+    transition: transform $anim;
+
+    @media (max-width: em(992)) {
+      padding: 6.2rem 2rem;
+    }
+
+    @media (max-width: em(576)) {
+      border-right: none;
+      border-top-right-radius: initial;
+      border-bottom-right-radius: initial;
+      max-width: 100%;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  &-close {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 80%;
+      height: 0.1rem;
+      background-color: var(--clr-default-900);
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    @media (min-width: em(993)) {
+      display: none;
+    }
+  }
+}

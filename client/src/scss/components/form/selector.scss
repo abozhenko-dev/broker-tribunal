@@ -1,0 +1,58 @@
+.form-selector {
+  &__label {
+    cursor: pointer;
+  }
+
+  &__input {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+
+    &:checked + .form-selector__btn {
+      &::before {
+        background-color: var(--clr-primary-300);
+      }
+    }
+  }
+
+  &__btn {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    padding-left: 3.6rem;
+    font-size: 1.4rem;
+    color: var(--clr-default-600);
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: -0.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.1rem solid var(--clr-primary-300);
+      border-radius: calc(var(--radius) / 2);
+      width: 2.4rem;
+      height: 2.4rem;
+      font-size: 1.7rem;
+      color: var(--clr-default-100);
+      transition: border-color var(--transition);
+    }
+
+    a {
+      color: var(--clr-default-900);
+    }
+  }
+
+  &.error {
+    .form-selector__btn::before {
+      border-color: var(--clr-ui-error);
+      transition: border-color var(--transition);
+    }
+  }
+}

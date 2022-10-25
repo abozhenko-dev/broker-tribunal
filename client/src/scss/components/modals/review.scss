@@ -1,0 +1,24 @@
+.modal-review {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin-bottom: 3.2rem;
+
+    &-grid {
+      display: grid;
+      grid-gap: 2.4rem;
+      grid-template-columns: repeat(2, 1fr);
+
+      @media (max-width: em(576)) {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+      }
+    }
+  }
+}

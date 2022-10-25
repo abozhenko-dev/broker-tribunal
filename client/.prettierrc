@@ -1,0 +1,49 @@
+{
+  "trailingComma": "none",
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrder": [
+    "^react$",
+
+    "^next(/.*)?$",
+
+    "<THIRD_PARTY_MODULES>",
+
+    "^@pages(/.*$(?<!\\.scss))?$",
+
+    "^@common(/.*$(?<!\\.scss))?$",
+
+    "^@forms(/.*$(?<!\\.scss))?$",
+
+    "^@ui(/.*$(?<!\\.scss))?$",
+
+    "^@components(/.*$(?<!\\.scss))?$",
+
+    "^@store(/.*$(?<!\\.scss))?$",
+
+    "^@services(/.*$(?<!\\.scss))?$",
+
+    "^@hooks(/.*$(?<!\\.scss))?$",
+
+    "^@declarations(/.*$(?<!\\.scss))?$",
+
+    "^@schemas(/.*$(?<!\\.scss))?$",
+
+    "^@constants(/.*$(?<!\\.scss))?$",
+
+    "^@translations(/.*$(?<!\\.scss))?$",
+
+    "^@helpers(/.*$(?<!\\.scss))?$",
+
+    "^@utils(/.*$(?<!\\.scss))?$",
+
+    "^@public(/.*$(?<!\\.scss))?$",
+
+    "^@assets(/.*$(?<!\\.scss))?$",
+
+    "^..(/.*$(?<!\\.scss))?$",
+    "^.(/.*$(?<!\\.scss))?$",
+
+    "(.scss)$"
+  ]
+}

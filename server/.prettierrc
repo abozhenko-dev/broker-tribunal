@@ -1,0 +1,23 @@
+{
+  "trailingComma": "none",
+  "printWidth": 130,
+  "importOrder": [
+    "^@nestjs(/.*)?$",
+
+    "<THIRD_PARTY_MODULES>",
+
+    "^@common/.*",
+    "^@admin/.*",
+    "^@site/.*",
+
+    "(.module)$",
+    "(.controller)$",
+    "(.service)$",
+
+    "^..(/.*)?$",
+    "^.(/.*)?$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["typescript", "decorators-legacy"]
+}

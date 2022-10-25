@@ -1,0 +1,18 @@
+.modal-consultation {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin-bottom: 3.2rem;
+  }
+}

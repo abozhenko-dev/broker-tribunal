@@ -1,0 +1,101 @@
+.languages {
+  position: relative;
+
+  &-current {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    svg {
+      margin-left: 0.4rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      transform: rotate(180deg);
+      transition: transform var(--transition);
+      pointer-events: none;
+    }
+  }
+
+  &-dropdown {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 1rem);
+    z-index: 10;
+    overflow: hidden;
+    border: 0.1rem solid var(--clr-default-400);
+    border-radius: calc(var(--radius) / 2);
+    width: 8.2rem;
+    box-shadow: 0.1rem 0.2rem 3.5rem rgba(34, 34, 34, 0.03);
+    background-color: var(--clr-default-100);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%);
+    transition: opacity var(--transition), visibility var(--transition);
+    pointer-events: none;
+  }
+
+  &-list {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &-item {
+    &:not(:last-child) {
+      border-bottom: 0.1rem solid var(--clr-default-400);
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      min-height: 5.2rem;
+      transition: color var(--transition), background-color var(--transition);
+
+      &.focus-visible {
+        outline: none;
+        color: var(--clr-default-100);
+        background-color: var(--clr-primary-300);
+        transition: color var(--transition), background-color var(--transition);
+      }
+
+      @media (hover) {
+        &:hover {
+          color: var(--clr-default-100);
+          background-color: var(--clr-primary-300);
+          transition: color var(--transition),
+            background-color var(--transition);
+        }
+      }
+    }
+
+    &.active {
+      a {
+        color: var(--clr-default-100);
+        background-color: var(--clr-primary-300);
+      }
+    }
+  }
+
+  &.open {
+    .languages-current {
+      svg {
+        transform: rotate(0);
+        transition: transform var(--transition);
+      }
+    }
+
+    .languages-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity var(--transition), visibility var(--transition);
+      pointer-events: initial;
+    }
+  }
+
+  @media (max-width: em(576)) {
+    margin-left: auto;
+  }
+}

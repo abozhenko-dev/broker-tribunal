@@ -1,0 +1,75 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  min-height: 6rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 140%;
+  text-align: center;
+
+  &.primary {
+    color: var(--clr-default-100);
+    background-color: var(--clr-primary-400);
+    transition: background-color var(--transition);
+
+    &.focus-visible {
+      outline: none;
+      background-color: var(--clr-primary-300);
+      transition: background-color var(--transition);
+    }
+
+    @media (hover) {
+      &:hover {
+        background-color: var(--clr-primary-300);
+        transition: background-color var(--transition);
+      }
+    }
+  }
+
+  &.ghost {
+    border: 0.1rem solid var(--clr-default-400);
+    color: var(--clr-default-900);
+    background-color: var(--clr-default-100);
+    transition: border-color var(--transition), color var(--transition);
+
+    &.focus-visible {
+      outline: none;
+      border-color: var(--clr-primary-300);
+      color: var(--clr-primary-300);
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    @media (hover) {
+      &:hover {
+        border-color: var(--clr-primary-300);
+        color: var(--clr-primary-300);
+        transition: border-color var(--transition), color var(--transition);
+      }
+    }
+  }
+
+  &.L {
+    min-width: 26rem;
+  }
+
+  &.M {
+    min-width: 18rem;
+  }
+
+  &.S {
+    min-width: 11rem;
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+}

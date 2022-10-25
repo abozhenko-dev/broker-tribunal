@@ -1,0 +1,42 @@
+// Fonts
+@import "./fonts.scss";
+
+// Libs
+@import "./libs/antd.scss";
+
+// spectre
+$primary-color: #1890ff !default;
+
+@import "node_modules/spectre.css/src/spectre";
+@import "node_modules/spectre.css/src/spectre-icons.scss";
+
+// Layouts
+@import "./layouts/admin.layout.scss";
+@import "./layouts/auth.layout.scss";
+
+// Components
+@import "./components/navigation.scss";
+@import "./components/logo.scss";
+@import "./components/profile-menu.scss";
+@import "./components/page-loader.scss";
+@import "./components/error-fallback.scss";
+@import "./components/card.scss";
+@import "./components/table.scss";
+
+body {
+  line-height: 140%;
+  color: #001529;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1890ff;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}

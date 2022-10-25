@@ -1,0 +1,47 @@
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    width: 4.8rem;
+    height: 4.8rem;
+    background-color: var(--clr-default-400);
+    transition: background-color var(--transition);
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: var(--clr-default-900);
+      transition: fill var(--transition);
+      pointer-events: none;
+    }
+
+    &.focus-visible {
+      outline: none;
+      background-color: var(--clr-primary-200);
+      transition: background-color var(--transition);
+
+      svg {
+        fill: var(--clr-primary-400);
+        transition: fill var(--transition);
+      }
+    }
+
+    @media (hover) {
+      &:hover {
+        background-color: var(--clr-primary-200);
+        transition: background-color var(--transition);
+
+        svg {
+          fill: var(--clr-primary-400);
+          transition: fill var(--transition);
+        }
+      }
+    }
+  }
+}

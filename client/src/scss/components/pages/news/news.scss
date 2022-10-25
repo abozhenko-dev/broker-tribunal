@@ -1,0 +1,37 @@
+.news {
+  .pagination {
+    margin-top: 4.8rem;
+
+    @media (max-width: em(992)) {
+      margin-top: 2.4rem;
+    }
+  }
+
+  .tags {
+    margin-top: 6rem;
+  }
+
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 3.2rem;
+
+    > li {
+      border: 0.1rem solid var(--clr-default-400);
+      padding: 1.6rem;
+
+      @media (max-width: em(992)) {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: em(992)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: em(767)) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
