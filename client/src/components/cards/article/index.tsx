@@ -49,7 +49,7 @@ export const ArticleCard: FC<ArticleCardProps> = (props) => {
         <Link href={`/${route}/${article.slug}`}>
           <a>
             <Image
-              src={`https://brokerrrr.b-cdn.net/${article.poster?.link}`}
+              src={`${article.poster?.link}`}
               width={imgWidth}
               height={imgHeight}
               title={article.poster?.meta?.title || article.title}

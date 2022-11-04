@@ -77,10 +77,6 @@ export class ArticleCreateBody {
   @ApiPropertyOptional()
   relatedArticles?: string[];
 
-  @IsDateString()
-  @ApiProperty()
-  createdDate: Date;
-
   @IsOptional()
   @IsObject()
   @ValidateNested()

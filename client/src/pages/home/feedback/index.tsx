@@ -64,7 +64,7 @@ export const Feedback: FC = () => {
               <div className="feedback-slide__top">
                 <div className="feedback-slide__image">
                   <Image
-                    src={`https://brokerrrr.b-cdn.net/${review.entityLogo?.link}`}
+                    src={`${review.entityLogo?.link}`}
                     width={107}
                     height={34}
                     alt=""

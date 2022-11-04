@@ -42,7 +42,7 @@ export const LastAdded: FC = () => {
                 <NextLink href={`/broker/${company.slug}`}>
                   <a>
                     <Image
-                      src={`https://brokerrrr.b-cdn.net/${company.logo?.link}`}
+                      src={`${company.logo?.link}`}
                       width={164}
                       height={140}
                       alt={company.logo?.meta?.alt || company.name}

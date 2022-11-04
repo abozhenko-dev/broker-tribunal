@@ -39,7 +39,7 @@ export const Table: FC<TableProps> = (props) => {
                     <a>
                       <div className="companies-table__item-image">
                         <Image
-                          src={`https://brokerrrr.b-cdn.net/${item.logo?.link}`}
+                          src={`${item.logo?.link}`}
                           width={68}
                           height={39}
                           alt={item.logo.meta?.alt || item.name}

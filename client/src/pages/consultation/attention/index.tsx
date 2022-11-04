@@ -28,7 +28,7 @@ export const Attention: FC = () => {
               tag="li"
               title={card.title}
               description={card.description}
-              src={`/media/icons/consultation/broker-${index + 1}.svg`}
+              src={`media/icons/consultation/broker-${index + 1}.svg`}
             />
           ))}
         </ul>

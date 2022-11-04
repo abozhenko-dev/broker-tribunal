@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { FC } from "react";
 
-import { IFaq } from "@declarations";
-
 import { Accordion } from "@components/common";
 import { Container, HtmlImage, Typography } from "@components/ui";
 
 import { useTranslation } from "@hooks";
+
+import { IFaq } from "@declarations";
 
 export const Faq: FC<{ faq: IFaq[] }> = (props) => {
   // **Props
@@ -24,7 +24,7 @@ export const Faq: FC<{ faq: IFaq[] }> = (props) => {
         </div>
         <div className="home-faq__illustration">
           <HtmlImage
-            src="/media/illustrations/faq.svg"
+            src="media/illustrations/faq.svg"
             width={842}
             height={682}
             alt=""

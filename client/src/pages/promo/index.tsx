@@ -55,7 +55,7 @@ export const Promo: FC<{ text: string }> = (props) => {
             <div className="promo__wrapper-top">
               <div className="promo__wrapper-img">
                 <HtmlImage
-                  src="/media/illustrations/promo.svg"
+                  src="media/illustrations/promo.svg"
                   width={242}
                   height={294}
                 />

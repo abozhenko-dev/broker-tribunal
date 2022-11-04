@@ -40,10 +40,6 @@ export class Article {
   @ApiPropertyOptional({ type: [Article] })
   relatedArticles?: mongoose.Schema.Types.ObjectId[];
 
-  @Prop({ required: true })
-  @ApiProperty({ type: Date })
-  createdDate: Date;
-
   @Prop({ type: MetaModel })
   @ApiPropertyOptional({ type: Meta })
   meta?: Meta;

@@ -25,7 +25,7 @@ export const Home: FC<{ faq: IFaq[] }> = (props) => {
       <ComplaintForm />
       <div className="home-illustrations gutter-section-top gutter-section-bottom">
         <LastNews withAllNews />
-        {faq.length && <Faq faq={faq} />}
+        {faq?.length && <Faq faq={faq} />}
       </div>
     </>
   );

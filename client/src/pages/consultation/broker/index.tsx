@@ -97,7 +97,7 @@ export const Broker: FC = () => {
           </div>
           <div className="broker-background">
             <HtmlImage
-              src="/media/illustrations/broker.svg"
+              src="media/illustrations/broker.svg"
               width={511}
               height={714}
               alt=""

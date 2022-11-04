@@ -13,7 +13,7 @@ export const NotFound: FC = () => {
       <Container>
         <div className="not-found__wrapper">
           <HtmlImage
-            src="/media/illustrations/404.svg"
+            src="media/illustrations/404.svg"
             width={1036}
             height={554}
             aria-hidden={true}

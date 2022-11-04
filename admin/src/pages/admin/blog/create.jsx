@@ -101,7 +101,7 @@ const BlogCreate = () => {
               tags={filteredTags}
               handleRelatedArticles={handleRelatedArticles}
               relatedArticles={filteredRelatedArticles}
-              lang={0}
+              lang={lang}
             />
           </Tabs.TabPane>
 

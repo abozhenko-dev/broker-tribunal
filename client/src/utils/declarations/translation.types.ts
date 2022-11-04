@@ -26,6 +26,6 @@ export interface ITranslation {
   };
   filters: Record<string, string>;
   cards: Record<string, ICard[]>;
-  bin: Record<string, string | ReactNode>;
+  bin: Record<string, string | ReactNode | string[]>;
   statistics: Record<string, string>;
 }
