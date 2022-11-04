@@ -35,22 +35,9 @@ export const Footer: FC<FooterProps> = (props) => {
             color="grey"
             className="footer-about__info"
           >
-            <p>
-              Проект БрокерТрибунал появился в интернете летом в 2018 году и
-              представляет собой площадку для размещения отзывов и мнений
-              трейдеров о форекс брокерах. Цель проекта - пролить свет на
-              деятельность инвестиционных компаний, которые не выполняют взятые
-              на себя обязательства перед своими клиентами, вводя их в
-              заблуждения.
-            </p>
-            <p>
-              Писать статьи и оставлять отзывы может каждый Пользователь,
-              достигнувший 18 летнего возраста.
-            </p>
-            <p>
-              БрокерТрибунал не отвечает за информацию и предложения,
-              размещаемые Пользователями на Сайте
-            </p>
+            {(t.bin.aboutUsText as string[]).map((key: string) => (
+              <p key={key}>{key}</p>
+            ))}
           </Typography>
         </div>
         <div className="footer-content">
@@ -76,7 +63,7 @@ export const Footer: FC<FooterProps> = (props) => {
               </div>
             </div>
             <div className="footer-content__column">
-              {overviews.length && (
+              {overviews?.length !== 0 && (
                 <div className="footer-content__item">
                   <Typography
                     className="footer-content__title"

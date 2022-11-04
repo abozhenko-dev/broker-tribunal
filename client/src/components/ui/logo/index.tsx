@@ -16,7 +16,7 @@ export const Logo: FC = () => {
       <Link href="/">
         <a>
           <HtmlImage
-            src="/media/ui/logo.svg"
+            src="media/ui/logo.svg"
             width={150}
             height={40}
             title={t.alt.logo}

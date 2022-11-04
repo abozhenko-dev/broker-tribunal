@@ -27,7 +27,7 @@ export const Hero: FC = () => {
           </div>
           <div className="hero-background">
             <HtmlImage
-              src="/media/illustrations/finans.svg"
+              src="media/illustrations/finans.svg"
               width={698}
               height={584}
               alt=""

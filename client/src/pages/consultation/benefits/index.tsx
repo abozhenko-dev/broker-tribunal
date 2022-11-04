@@ -28,7 +28,7 @@ export const Benefits: FC = () => {
               tag="li"
               title={card.title}
               description={card.description}
-              src={`/media/icons/consultation/advantages-${index + 1}.svg`}
+              src={`media/icons/consultation/advantages-${index + 1}.svg`}
             />
           ))}
         </ul>

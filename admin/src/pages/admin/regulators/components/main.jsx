@@ -6,13 +6,6 @@ import { LANGUAGES_OPTIONS } from "@utils/constants";
 
 const { Option } = Select;
 
-const selectBefore = (
-  <Select defaultValue="http://" className="select-before">
-    <Option value="http://">http://</Option>
-    <Option value="https://">https://</Option>
-  </Select>
-);
-
 export const Main = ({ withId }) => (
   <>
     {withId && (
@@ -93,13 +86,13 @@ export const Main = ({ withId }) => (
     <Row gutter={16}>
       <Col span={12}>
         <Form.Item name={["info", "website"]} label="Сайт" hasFeedback>
-          <Input addonBefore={selectBefore} defaultValue="mysite" />
+          <Input />
         </Form.Item>
       </Col>
 
       <Col span={12}>
         <Form.Item name={["info", "phone"]} label="Телефон" allowClear hasFeedback>
-          <Input prefix="+" />
+          <Input />
         </Form.Item>
       </Col>
     </Row>

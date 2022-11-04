@@ -176,8 +176,7 @@ const Reviews = () => {
               </Link>
             )}
           />
-          <Table.Column title="Объект" dataIndex="entity" />
-          <Table.Column title="Отзыв" dataIndex="text" width={200} ellipsis />
+          <Table.Column title="Отзыв" dataIndex="comment" width={200} ellipsis />
           <Table.Column
             title="Оценка"
             dataIndex="rating"
@@ -187,7 +186,6 @@ const Reviews = () => {
             sorter={(a, b) => a.rating - b.rating}
             render={(record) => <Tag color="gold">{record}</Tag>}
           />
-          <Table.Column title="Имя брокера" dataIndex="broker" ellipsis />
           <Table.Column
             width={100}
             title="Действия"

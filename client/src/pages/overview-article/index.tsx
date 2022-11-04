@@ -25,7 +25,7 @@ export const OverviewArticle: FC<{ overview: IOverview }> = (props) => {
           <div className="overview-article__top">
             <div className="overview-article__top-image">
               <Image
-                src={`https://brokerrrr.b-cdn.net/${overview.logo?.link}`}
+                src={`${overview.logo?.link}`}
                 width={188}
                 height={95}
                 alt={overview.logo.meta?.alt || overview.title}

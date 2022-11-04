@@ -40,19 +40,19 @@ export const Company: FC<CompanyProps> = (props) => {
         <Container>
           <div className="company-head">
             <Typography tag="h1" variant="h3">
-              {company.name}
+              {company?.name}
             </Typography>
             <div className="company-head__rating">
-              <Rating rating={company.rating} withCaption width={80} />
+              <Rating rating={company?.rating} withCaption width={80} />
             </div>
             <div className="company-info">
               <div className="company-info__image">
                 <Image
-                  src={`https://brokerrrr.b-cdn.net/${company.logo?.link}`}
+                  src={`${company?.logo?.link}`}
                   width={188}
                   height={95}
-                  alt={company.logo.meta?.alt || company.name}
-                  title={company.logo.meta?.title || company.name}
+                  alt={company?.logo.meta?.alt || company?.name}
+                  title={company?.logo.meta?.title || company?.name}
                 />
               </div>
               <ul className="company-info__details">
@@ -60,20 +60,20 @@ export const Company: FC<CompanyProps> = (props) => {
                   <Typography variant="paragraph2" color="grey">
                     {t.bin.jurisdiction}
                   </Typography>
-                  <Typography>{company.jurisdiction}</Typography>
+                  <Typography>{company?.jurisdiction}</Typography>
                 </li>
                 <li>
                   <Typography variant="paragraph2" color="grey">
                     {t.bin.minDeposit}
                   </Typography>
-                  <Typography>{company.minDeposit}</Typography>
+                  <Typography>{company?.minDeposit}</Typography>
                 </li>
                 <li>
                   <Typography variant="paragraph2" color="grey">
                     {t.bin.establish}
                   </Typography>
                   <Typography>
-                    {dayjs(company.foundingDate).format("YYYY")}
+                    {dayjs(company?.foundingDate).format("YYYY")}
                   </Typography>
                 </li>
               </ul>
@@ -114,7 +114,7 @@ export const Company: FC<CompanyProps> = (props) => {
               >
                 <div
                   className="about"
-                  dangerouslySetInnerHTML={{ __html: company.about }}
+                  dangerouslySetInnerHTML={{ __html: company?.about }}
                 ></div>
               </div>
               <div
@@ -124,13 +124,13 @@ export const Company: FC<CompanyProps> = (props) => {
                     : "company-content__body"
                 }
                 style={{
-                  alignItems: !company.faqs.length ? "center" : "initial"
+                  alignItems: !company?.faqs?.length ? "center" : "initial"
                 }}
               >
-                {company.faqs.length === 0 && (
+                {company?.faqs?.length === 0 && (
                   <>
                     <HtmlImage
-                      src="/media/illustrations/reviews.svg"
+                      src="media/illustrations/reviews.svg"
                       width={442}
                       height={446}
                       alt=""
@@ -139,10 +139,10 @@ export const Company: FC<CompanyProps> = (props) => {
                     <Typography variant="h5">{t.bin.emptyFaq}</Typography>
                   </>
                 )}
-                {company.faqs.length !== 0 && (
+                {company?.faqs?.length !== 0 && (
                   <>
                     <Typography variant="h5">{t.bin.faq2}</Typography>
-                    <Accordion items={company.faqs} />
+                    <Accordion items={company?.faqs} />
                   </>
                 )}
               </div>
@@ -154,15 +154,15 @@ export const Company: FC<CompanyProps> = (props) => {
                 }
                 style={{
                   alignItems:
-                    company.reviews.length === 0 ? "center" : "initial"
+                    company?.reviews.length === 0 ? "center" : "initial"
                 }}
               >
-                {company.reviews.length !== 0 && (
+                {company?.reviews.length !== 0 && (
                   <>
                     <Typography variant="h5">{t.bin.feedbacks2}</Typography>
 
                     <ul className="company-reviews">
-                      {company.reviews.map((review) => (
+                      {company?.reviews.map((review) => (
                         <li key={review._id} className="company-reviews__item">
                           <div className="company-reviews__item-info">
                             <Typography variant="paragraph2" color="grey">
@@ -184,10 +184,10 @@ export const Company: FC<CompanyProps> = (props) => {
                     </ul>
                   </>
                 )}
-                {company.reviews.length === 0 && (
+                {company?.reviews.length === 0 && (
                   <>
                     <HtmlImage
-                      src="/media/illustrations/reviews.svg"
+                      src="media/illustrations/reviews.svg"
                       width={442}
                       height={446}
                       alt=""
@@ -217,7 +217,7 @@ export const Company: FC<CompanyProps> = (props) => {
                           <li className="company-socials__item">
                             <div className="company-socials__item-icon">
                               <HtmlImage
-                                src="/media/icons/mail.svg"
+                                src="media/icons/mail.svg"
                                 width={48}
                                 height={48}
                                 alt=""
@@ -229,10 +229,10 @@ export const Company: FC<CompanyProps> = (props) => {
                                 {t.bin.mail}
                               </Typography>
                               <a
-                                href={`mailto:${company.info.email}`}
+                                href={`mailto:${company?.info.email}`}
                                 className="company-socials__item-value"
                               >
-                                {company.info.email}
+                                {company?.info.email}
                               </a>
                             </div>
                           </li>
@@ -242,7 +242,7 @@ export const Company: FC<CompanyProps> = (props) => {
                           <li className="company-socials__item">
                             <div className="company-socials__item-icon">
                               <HtmlImage
-                                src="/media/icons/phone.svg"
+                                src="media/icons/phone.svg"
                                 width={48}
                                 height={48}
                                 alt=""
@@ -254,13 +254,13 @@ export const Company: FC<CompanyProps> = (props) => {
                                 {t.bin.phone}
                               </Typography>
                               <a
-                                href={`tel:${company.info.phone.replace(
+                                href={`tel:${company?.info.phone.replace(
                                   /[()\s-_]/g,
                                   ""
                                 )}`}
                                 className="company-socials__item-value"
                               >
-                                {company.info.phone}
+                                {company?.info.phone}
                               </a>
                             </div>
                           </li>
@@ -270,7 +270,7 @@ export const Company: FC<CompanyProps> = (props) => {
                           <li className="company-socials__item">
                             <div className="company-socials__item-icon">
                               <HtmlImage
-                                src="/media/icons/pointer.svg"
+                                src="media/icons/pointer.svg"
                                 width={48}
                                 height={48}
                                 alt=""
@@ -282,7 +282,7 @@ export const Company: FC<CompanyProps> = (props) => {
                                 {t.bin.country}
                               </Typography>
                               <div className="company-socials__item-value">
-                                {company.info.country}
+                                {company?.info.country}
                               </div>
                             </div>
                           </li>
@@ -292,7 +292,7 @@ export const Company: FC<CompanyProps> = (props) => {
                           <li className="company-socials__item">
                             <div className="company-socials__item-icon">
                               <HtmlImage
-                                src="/media/icons/website.svg"
+                                src="media/icons/website.svg"
                                 width={48}
                                 height={48}
                                 alt=""
@@ -304,10 +304,10 @@ export const Company: FC<CompanyProps> = (props) => {
                                 {t.bin.site}
                               </Typography>
                               <a
-                                href={company.info.website}
+                                href={company?.info.website}
                                 className="company-socials__item-value"
                               >
-                                {company.info.website}
+                                {company?.info.website}
                               </a>
                             </div>
                           </li>
@@ -344,7 +344,7 @@ export const Company: FC<CompanyProps> = (props) => {
         visible={isReviwOpen}
         params={{
           entity: regulator ? "regulator" : "broker",
-          entitySlug: company.slug
+          entitySlug: company?.slug
         }}
         onClose={() => setIsReviewOpen(false)}
       />

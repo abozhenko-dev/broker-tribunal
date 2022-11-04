@@ -66,7 +66,7 @@ export const Search: FC<SearchProps> = (props) => {
                   <a>
                     <div className="search-dropdown__item-image">
                       <Image
-                        src={`https://brokerrrr.b-cdn.net/${item.logo?.link}`}
+                        src={`${item.logo?.link}`}
                         width={68}
                         height={39}
                         alt={item.logo?.meta?.alt || item.name}

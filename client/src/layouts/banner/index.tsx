@@ -51,7 +51,7 @@ export const BannerLayout: FC<BannerLayoutProps> = (props) => {
               {t.bin.orderConsultation}
             </Button>
           </BannerCard>
-          <BannerCard imgSrc="/media/illustrations/banner-person.svg">
+          <BannerCard imgSrc="media/illustrations/banner-person.svg">
             <Typography variant="h5" className="title">
               {t.bin.choosingBroker}
             </Typography>
@@ -68,7 +68,7 @@ export const BannerLayout: FC<BannerLayoutProps> = (props) => {
             </Link>
           </BannerCard>
           <BannerCard
-            imgSrc="/media/illustrations/banner-coins.svg"
+            imgSrc="media/illustrations/banner-coins.svg"
             style={{ minHeight: "27.6rem" }}
           >
             <Typography variant="h5" className="title">
