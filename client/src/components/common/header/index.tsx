@@ -92,7 +92,7 @@ export const Header: FC<HeaderProps> = (props) => {
                 </li>
               ))}
             </Accordion>
-            {overviews.length && (
+            {overviews?.length !== 0 && (
               <Accordion title={t.bin.reviews as string}>
                 {overviews.map((overview) => (
                   <li key={overview._id}>

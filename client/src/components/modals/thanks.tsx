@@ -19,7 +19,7 @@ export const ThanksModal: FC<ThanksModalProps> = (props) => {
   return (
     <Modal visible={visible} onClose={onClose} bodyClassName="modal-thanks">
       <HtmlImage
-        src="/media/illustrations/thanks.svg"
+        src="media/illustrations/thanks.svg"
         width={352}
         height={347}
         alt=""

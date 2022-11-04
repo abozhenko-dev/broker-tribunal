@@ -9,8 +9,8 @@ services:
     expose:
       - 3000
     environment:
-      - VIRTUAL_HOST=broker.abozhenko.com
-      - LETSENCRYPT_HOST=broker.abozhenko.com
+      - VIRTUAL_HOST=getrefund.co.uk
+      - LETSENCRYPT_HOST=getrefund.co.uk
       - VIRTUAL_PORT=3000
     depends_on:
       - server
@@ -24,8 +24,8 @@ services:
     expose:
       - 7000
     environment:
-      - VIRTUAL_HOST=admin-broker.abozhenko.com
-      - LETSENCRYPT_HOST=admin-broker.abozhenko.com
+      - VIRTUAL_HOST=admin.getrefund.co.uk
+      - LETSENCRYPT_HOST=admin.getrefund.co.uk
       - VIRTUAL_PORT=7000
     depends_on:
       - server
@@ -38,13 +38,11 @@ services:
     expose:
       - 4000
     environment:
-      - VIRTUAL_HOST=api-broker.abozhenko.com
-      - LETSENCRYPT_HOST=api-broker.abozhenko.com
+      - VIRTUAL_HOST=api.getrefund.co.uk
+      - LETSENCRYPT_HOST=api.getrefund.co.uk
       - VIRTUAL_PORT=4000
-    volumes:
-      - /pipes/pipe:/pipes/pipe
 
 networks:
   default:
-    external:
-      name: nginx-proxy
+    name: nginx-proxy
+    external: true

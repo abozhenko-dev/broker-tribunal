@@ -13,7 +13,14 @@ export const BannerCard: FC<BannerCardProps> = (props) => {
   return (
     <Tag
       className="banner-card"
-      style={imgSrc ? { backgroundImage: `url("${imgSrc}")`, ...style } : style}
+      style={
+        imgSrc
+          ? {
+              backgroundImage: `url("${process.env.NEXT_PUBLIC_BUCKET_URL}${imgSrc}")`,
+              ...style
+            }
+          : style
+      }
       {...rest}
     >
       {children}

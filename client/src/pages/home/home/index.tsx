@@ -69,7 +69,7 @@ export const Home: FC = () => {
         </div>
         <div className="home-background">
           <HtmlImage
-            src="/media/illustrations/hero.svg"
+            src="media/illustrations/hero.svg"
             width={821}
             height={728}
           />

@@ -22,7 +22,7 @@ export const ReviewCard: FC<ReviewCardProps> = (props) => {
         <Link href={`/overview/${category}/${item.slug}`}>
           <a>
             <Image
-              src={`https://brokerrrr.b-cdn.net/${item.logo?.link}`}
+              src={`${item.logo?.link}`}
               width={100}
               height={48}
               alt={item.logo.meta?.alt || item.title}

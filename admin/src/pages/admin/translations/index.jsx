@@ -402,6 +402,14 @@ const TranslationsList = () => {
                         },
                         notFoundDescription: {
                           type: "string"
+                        },
+                        aboutUsText: {
+                          type: "array",
+                          title: "Описание о нас",
+                          format: "table",
+                          items: {
+                            type: "string"
+                          }
                         }
                       }
                     },

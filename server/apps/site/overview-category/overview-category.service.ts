@@ -31,6 +31,8 @@ export class OverviewCategoryService {
 
   async getMain(query: LangDto) {
     const category = await this.OverviewCategoryModel.findOne({ showOnHome: true, lang: query.lang }).lean();
+    if (!category) return null
+
     const overviews = await this.OverviewModel.find({ categories: category._id })
       .select("title logo slug")
       .populate("logo")

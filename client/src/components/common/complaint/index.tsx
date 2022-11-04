@@ -106,7 +106,7 @@ export const ComplaintForm: FC = () => {
           </div>
           <div className="complaint-background">
             <HtmlImage
-              src="/media/illustrations/complaint.svg"
+              src="media/illustrations/complaint.svg"
               width={1112}
               height={896}
               alt=""
