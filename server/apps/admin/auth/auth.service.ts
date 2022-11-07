@@ -8,6 +8,7 @@ import { Model } from "mongoose";
 import uniqid from "uniqid";
 
 import {
+  AuthChangePasswordBody,
   AuthLoginBody,
   AuthRegisterBody,
   AuthResetFinishBody,
@@ -127,6 +128,18 @@ export class AuthService {
     const password = await hash(body.password, 12);
     await this.UserModel.findByIdAndUpdate(user._id, { password });
     await this.ResetModel.deleteOne({ token: body.token });
+
+    return { message: HttpStatusMessages.OK };
+  }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  async changePassword(req: IAuthRequest, body: AuthChangePasswordBody) {
+    const isPasswordValid = await compare(body.oldPassword, req.user.password);
+    if (!isPasswordValid) throw new HttpException(HttpStatusMessages.INVALID_CREDENTIALS, HttpStatus.UNAUTHORIZED);
+
+    const newPassword = await hash(body.newPassword, 12);
+    await this.UserModel.findByIdAndUpdate(req.user._id, { password: newPassword });
 
     return { message: HttpStatusMessages.OK };
   }

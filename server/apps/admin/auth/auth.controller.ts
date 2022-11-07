@@ -5,6 +5,7 @@ import { Request, Response } from "express";
 
 import {
   ApiResponseDto,
+  AuthChangePasswordBody,
   AuthLoginBody,
   AuthLoginOkResponse,
   AuthRefreshOkResponse,
@@ -23,12 +24,16 @@ import { AuthService } from "./auth.service";
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
   @HttpCode(200)
   @Post("login")
   @ApiOkResponse({ type: AuthLoginOkResponse })
   login(@Res({ passthrough: true }) res: Response, @Body() body: AuthLoginBody) {
     return this.authService.login(res, body);
   }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   @HttpCode(200)
   @Post("register")
@@ -37,6 +42,8 @@ export class AuthController {
     return this.authService.register(body);
   }
 
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
   @HttpCode(200)
   @Post("refresh")
   @ApiOkResponse({ type: AuthRefreshOkResponse })
@@ -44,17 +51,32 @@ export class AuthController {
     return this.authService.refresh(req);
   }
 
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
   @HttpCode(200)
   @Post("reset-init")
   resetInit(@Body() body: AuthResetInitBody) {
     return this.authService.resetInit(body);
   }
 
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
   @HttpCode(200)
   @Post("reset-finish")
   resetFinish(@Body() body: AuthResetFinishBody) {
     return this.authService.resetFinish(body);
   }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  @Auth()
+  @HttpCode(200)
+  @Post("change-password")
+  changePassword(@Req() req: IAuthRequest, @Body() body: AuthChangePasswordBody) {
+    return this.authService.changePassword(req, body);
+  }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   @Auth()
   @HttpCode(200)
@@ -63,6 +85,8 @@ export class AuthController {
   logout(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
     return this.authService.logout(req, res);
   }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   @Auth()
   @HttpCode(200)
