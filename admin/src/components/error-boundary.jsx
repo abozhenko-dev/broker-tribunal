@@ -5,6 +5,7 @@ import { ErrorFallback } from "./error-fallback";
 
 export const ErrorBoundary = ({ children }) => {
   const handleError = (error) => {
+    console.log("here");
     console.error(error);
   };
 

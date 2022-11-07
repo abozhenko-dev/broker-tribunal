@@ -179,5 +179,11 @@ export const adminRoutes = [
   {
     path: "feedback",
     component: lazy(() => import("@pages/admin/feedback"))
+  },
+
+  // Settings
+  {
+    path: "password-reset",
+    component: lazy(() => import("@pages/admin/password-reset"))
   }
 ];
