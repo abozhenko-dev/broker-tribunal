@@ -57,3 +57,18 @@ export class AuthResetFinishBody {
   @Match("password")
   passwordConfirm: string;
 }
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+export class AuthChangePasswordBody {
+  @MinLength(6)
+  @MaxLength(32)
+  oldPassword: string;
+
+  @MinLength(6)
+  @MaxLength(32)
+  newPassword: string;
+
+  @Match("newPassword")
+  newPasswordConfirm: string;
+}
