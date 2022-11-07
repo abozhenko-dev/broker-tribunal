@@ -15,7 +15,7 @@ const Reset = () => {
   const handleSubmit = async (data) => {
     setLoading(true);
 
-    const resetResp = await AuthService.reset(data);
+    const resetResp = await AuthService.resetInit(data);
 
     setLoading(false);
 

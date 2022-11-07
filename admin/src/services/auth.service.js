@@ -26,7 +26,11 @@ export class AuthService {
     return $api.get("/auth/user");
   }
 
-  static reset(body) {
+  static changePassword(body) {
+    return $api.post("/auth/change-password", body, { withCredentials: true });
+  }
+
+  static resetInit(body) {
     return $api.post("/auth/reset-init", body);
   }
 

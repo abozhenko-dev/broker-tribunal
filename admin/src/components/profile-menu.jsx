@@ -1,5 +1,5 @@
 import { Dropdown, Menu, message } from "antd";
-import { AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineLock, AiOutlineLogout } from "react-icons/ai";
 import { HiUserCircle } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
@@ -27,6 +27,11 @@ export const ProfileMenu = () => {
         <Menu
           className="profile-menu"
           items={[
+            {
+              key: "password-reset",
+              label: <div onClick={() => navigate("/password-reset")}>Сменить пароль</div>,
+              icon: <AiOutlineLock />
+            },
             {
               key: "logout",
               label: <div onClick={handleLogout}>Выйти</div>,

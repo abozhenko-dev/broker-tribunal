@@ -1,6 +1,6 @@
 import { Suspense, createElement, useEffect, useState } from "react";
 
-import { Divider, Drawer, Layout } from "antd";
+import { Button, Divider, Drawer, Layout } from "antd";
 import Scrollbars from "react-custom-scrollbars-2";
 import { AiFillLeftCircle, AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import MediaQuery, { useMediaQuery } from "react-responsive";
@@ -73,6 +73,14 @@ export const AdminLayout = () => {
             className: "admin-layout__trigger",
             onClick: handleVisible
           })}
+          <Button
+            target="_blank"
+            type="link"
+            href={process.env.REACT_APP_SITE_URL}
+            style={{ marginLeft: "auto", marginRight: "8px" }}
+          >
+            Перейти на сайт
+          </Button>
           <ProfileMenu />
         </Layout.Header>
         <Layout.Content>
