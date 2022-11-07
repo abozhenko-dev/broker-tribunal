@@ -105,7 +105,7 @@ export class AuthService {
     const token = await uniqid();
     await this.ResetModel.create({ email: body.email, token });
 
-    const link = `${this.configService.get("SITE_URL")}/auth/reset/${token}`;
+    const link = `${this.configService.get("ADMIN_URL")}/auth/reset/${token}`;
     await this.mailService.reset({ link, email: body.email });
 
     return { message: HttpStatusMessages.OK };

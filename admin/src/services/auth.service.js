@@ -25,4 +25,12 @@ export class AuthService {
   static getUserInfo() {
     return $api.get("/auth/user");
   }
+
+  static reset(body) {
+    return $api.post("/auth/reset-init", body);
+  }
+
+  static resetFinish(body) {
+    return $api.post("/auth/reset-finish", body);
+  }
 }
