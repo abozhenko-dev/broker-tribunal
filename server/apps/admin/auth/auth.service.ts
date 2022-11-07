@@ -1,20 +1,34 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
 import { InjectModel } from "@nestjs/mongoose";
 
 import { compare, hash } from "bcryptjs";
 import { Request, Response } from "express";
 import { Model } from "mongoose";
+import uniqid from "uniqid";
 
-import { AuthLoginBody, AuthRegisterBody, HttpStatusMessages, IAuthRequest } from "@common/declarations";
-import { UserDocument } from "@common/models";
-import { TokenService } from "@common/services";
+import {
+  AuthLoginBody,
+  AuthRegisterBody,
+  AuthResetFinishBody,
+  AuthResetInitBody,
+  HttpStatusMessages,
+  IAuthRequest
+} from "@common/declarations";
+import { ResetDocument, UserDocument } from "@common/models";
+import { MailService, TokenService } from "@common/services";
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectModel("User") private readonly UserModel: Model<UserDocument>,
+    @InjectModel("Reset") private readonly ResetModel: Model<ResetDocument>,
+    private readonly configService: ConfigService,
+    private readonly mailService: MailService,
     private readonly tokenService: TokenService
   ) {}
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   async login(res: Response, body: AuthLoginBody) {
     const user = await this.UserModel.findOne({ email: body.email, isRegistered: true }).lean();
@@ -41,6 +55,8 @@ export class AuthService {
     return { token: tokens.accessToken };
   }
 
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
   async register(body: AuthRegisterBody) {
     const candidate = await this.UserModel.findOne({ email: body.email });
     if (candidate) throw new HttpException(HttpStatusMessages.USER_EXIST, HttpStatus.CONFLICT);
@@ -57,6 +73,8 @@ export class AuthService {
 
     return { message: HttpStatusMessages.OK };
   }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   async refresh(req: Request) {
     const { refreshToken } = req.cookies;
@@ -76,6 +94,45 @@ export class AuthService {
     return { token: accessToken };
   }
 
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  async resetInit(body: AuthResetInitBody) {
+    const user = await this.UserModel.findOne({ email: body.email });
+    if (!user) {
+      throw new HttpException(HttpStatusMessages.USER_NOT_EXIST, HttpStatus.CONFLICT);
+    }
+
+    const token = await uniqid();
+    await this.ResetModel.create({ email: body.email, token });
+
+    const link = `${this.configService.get("SITE_URL")}/auth/reset/${token}`;
+    await this.mailService.reset({ link, email: body.email });
+
+    return { message: HttpStatusMessages.OK };
+  }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  async resetFinish(body: AuthResetFinishBody) {
+    const resetEntity = await this.ResetModel.findOne({ token: body.token });
+    if (!resetEntity) {
+      throw new HttpException(HttpStatusMessages.INVALID_TOKEN, HttpStatus.CONFLICT);
+    }
+
+    const user = await this.UserModel.findOne({ email: resetEntity.email });
+    if (!user) {
+      throw new HttpException(HttpStatusMessages.USER_NOT_EXIST, HttpStatus.CONFLICT);
+    }
+
+    const password = await hash(body.password, 12);
+    await this.UserModel.findByIdAndUpdate(user._id, { password });
+    await this.ResetModel.deleteOne({ token: body.token });
+
+    return { message: HttpStatusMessages.OK };
+  }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
   async logout(req: Request, res: Response) {
     const { refreshToken } = req.cookies;
 
@@ -89,6 +146,8 @@ export class AuthService {
 
     return { message: HttpStatusMessages.OK };
   }
+
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   user(req: IAuthRequest) {
     const { user } = req;

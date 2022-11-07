@@ -9,6 +9,8 @@ import {
   AuthLoginOkResponse,
   AuthRefreshOkResponse,
   AuthRegisterBody,
+  AuthResetFinishBody,
+  AuthResetInitBody,
   AuthUserOkResponse,
   IAuthRequest
 } from "@common/declarations";
@@ -40,6 +42,18 @@ export class AuthController {
   @ApiOkResponse({ type: AuthRefreshOkResponse })
   refresh(@Req() req: Request) {
     return this.authService.refresh(req);
+  }
+
+  @HttpCode(200)
+  @Post("reset-init")
+  resetInit(@Body() body: AuthResetInitBody) {
+    return this.authService.resetInit(body);
+  }
+
+  @HttpCode(200)
+  @Post("reset-finish")
+  resetFinish(@Body() body: AuthResetFinishBody) {
+    return this.authService.resetFinish(body);
   }
 
   @Auth()

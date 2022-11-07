@@ -2,6 +2,10 @@ import { ApiProperty } from "@nestjs/swagger";
 
 import { IsEmail, IsNotEmpty, IsString, MaxLength, MinLength } from "class-validator";
 
+import { Match } from "@common/decorators";
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 export class AuthLoginBody {
   @IsEmail()
   @ApiProperty()
@@ -13,6 +17,8 @@ export class AuthLoginBody {
   @ApiProperty()
   password: string;
 }
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 export class AuthRegisterBody {
   @IsString()
@@ -28,4 +34,26 @@ export class AuthRegisterBody {
   @MaxLength(32)
   @ApiProperty()
   password: string;
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+export class AuthResetInitBody {
+  @IsEmail()
+  email: string;
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+export class AuthResetFinishBody {
+  @IsString()
+  @IsNotEmpty()
+  token: string;
+
+  @MinLength(6)
+  @MaxLength(32)
+  password: string;
+
+  @Match("password")
+  passwordConfirm: string;
 }
