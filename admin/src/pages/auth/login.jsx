@@ -39,26 +39,36 @@ const Login = () => {
   };
 
   return (
-    <Form layout="vertical" name="login-form" onFinish={handleSubmit}>
-      <Form.Item name="email" label="Email" rules={EMAIL_RULES}>
-        <Input prefix={<AiOutlineMail />} size="large" />
-      </Form.Item>
-      <Form.Item name="password" label="Password" rules={PASSWORD_RULES}>
-        <Input.Password prefix={<AiOutlineLock />} size="large" />
-      </Form.Item>
-      <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          block
-          loading={loading}
-          size="large"
-          style={{ marginTop: "10px" }}
-        >
-          Войти
-        </Button>
-      </Form.Item>
-    </Form>
+    <>
+      <Form layout="vertical" name="login-form" onFinish={handleSubmit}>
+        <Form.Item name="email" label="Email" rules={EMAIL_RULES}>
+          <Input prefix={<AiOutlineMail />} size="large" />
+        </Form.Item>
+        <Form.Item name="password" label="Password" rules={PASSWORD_RULES}>
+          <Input.Password prefix={<AiOutlineLock />} size="large" />
+        </Form.Item>
+        <Form.Item>
+          <Button
+            type="primary"
+            htmlType="submit"
+            block
+            loading={loading}
+            size="large"
+            style={{ marginTop: "10px" }}
+          >
+            Войти
+          </Button>
+        </Form.Item>
+      </Form>
+      <Button
+        type="link"
+        size="large"
+        href="/auth/reset"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        Забыли пароль?
+      </Button>
+    </>
   );
 };
 
